@@ -13,6 +13,8 @@ namespace FOAA
         public void Start()
         {
             instance = new Harmony("industry.foaa");
+            
+            instance.PatchAll();
         }
     }
 
