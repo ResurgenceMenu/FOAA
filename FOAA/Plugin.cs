@@ -80,6 +80,74 @@ namespace FOAA
 
             [HarmonyPatch(nameof(GorillaTelemetry.EnqueueTelemetryEventPlayFab))]
             public static bool BlockGorillaTelemetry_EnqueueTelemetryEventPlayFab() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorToolUpgrade)), HarmonyPrefix]
+            public static bool Block_GhostReactorToolUpgrade() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorChaosSeedStart)), HarmonyPrefix]
+            public static bool Block_GhostReactorChaosSeedStart() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorChaosJuiceCollected)), HarmonyPrefix]
+            public static bool Block_GhostReactorChaosJuiceCollected() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorOverdrivePurchased)), HarmonyPrefix]
+            public static bool Block_GhostReactorOverdrivePurchased() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorCreditsRefillPurchased)), HarmonyPrefix]
+            public static bool Block_GhostReactorCreditsRefillPurchased() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorFloorStart)), HarmonyPrefix]
+            public static bool Block_GhostReactorFloorStart() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorFloorComplete)), HarmonyPrefix]
+            public static bool Block_GhostReactorFloorComplete() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorToolPurchased)), HarmonyPrefix]
+            public static bool Block_GhostReactorToolPurchased() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorRankUp)), HarmonyPrefix]
+            public static bool Block_GhostReactorRankUp() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorToolUnlock)), HarmonyPrefix]
+            public static bool Block_GhostReactorToolUnlock() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorPodUpgradePurchased)), HarmonyPrefix]
+            public static bool Block_GhostReactorPodUpgradePurchased() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.SuperInfectionEvent),
+                 typeof(bool), typeof(float), typeof(float), typeof(float), typeof(float),
+                 typeof(float), typeof(float),
+                 typeof(Dictionary<SITechTreePageId, float>),
+                 typeof(Dictionary<SITechTreePageId, float>),
+                 typeof(float), typeof(float), typeof(float), typeof(float),
+                 typeof(Dictionary<SITechTreePageId, int>),
+                 typeof(Dictionary<SITechTreePageId, int>),
+                 typeof(int), typeof(int), typeof(int), typeof(int),
+                 typeof(Dictionary<SIResource.ResourceType, int>),
+                 typeof(Dictionary<SIResource.ResourceType, int>),
+                 typeof(int), typeof(int),
+                 typeof(bool[][]),
+                 typeof(int)
+             ), HarmonyPrefix]
+            public static bool Block_SuperInfectionEvent_Full() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.SuperInfectionEvent),
+                 typeof(string), typeof(int), typeof(int),
+                 typeof(float), typeof(float), typeof(float)
+             ), HarmonyPrefix]
+            public static bool Block_SuperInfectionEvent_Purchase() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.EnqueueZoneEvent)), HarmonyPrefix]
+            public static bool Block_ZoneEvent() => false;
+
+            [HarmonyPatch(nameof(GorillaTelemetry.PostGameModeEvent)), HarmonyPrefix]
+            public static bool Block_GameModeEvent() => false;
+
+            [HarmonyPatch("FetchItemArgs"), HarmonyPrefix]
+            public static bool Block_FetchItemArgs() => false;
+
+            [HarmonyPatch("BuilderItemsToStrings"), HarmonyPrefix]
+            public static bool Block_BuilderItemsToStrings() => false;
         }
     }
 }
