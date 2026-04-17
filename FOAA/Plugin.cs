@@ -80,9 +80,6 @@ namespace FOAA
             [HarmonyPatch(nameof(GorillaTelemetry.EnqueueTelemetryEvent))]
             public static bool BlockGorillaTelemetry_EnqueueTelemetryEvent() => false;
 
-            [HarmonyPatch(nameof(GorillaTelemetry.EnqueueTelemetryEventPlayFab))]
-            public static bool BlockGorillaTelemetry_EnqueueTelemetryEventPlayFab() => false;
-
             [HarmonyPatch(nameof(GorillaTelemetry.GhostReactorToolUpgrade)), HarmonyPrefix]
             public static bool Block_GhostReactorToolUpgrade() => false;
 
