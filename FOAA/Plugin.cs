@@ -12,6 +12,8 @@ namespace FOAA;
 internal class Plugin : BaseUnityPlugin
 {
     private Plugin() => Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
+    [HarmonyPatch(typeof(GorillaServer), nameof(GorillaServer.UploadGorillanalytics)), HarmonyPrefix]
+    static bool AnalyticsPath() => false;
     [HarmonyPatch(typeof(GorillaServer), nameof(GorillaServer.CheckIsMothershipTelemetryEnabled)), HarmonyPostfix]
     static void Telemetry(ref bool __result) => __result = false;
     [HarmonyPatch(typeof(PlayFabClientAPI), nameof(PlayFabClientAPI.UpdateUserTitleDisplayName)), HarmonyPrefix]
