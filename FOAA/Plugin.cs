@@ -7,9 +7,8 @@ using System.Linq;
 using System.Reflection;
 
 namespace FOAA;
-[HarmonyPatch]
-[BepInPlugin("skellon.industry.foaa", "1OAA", "1.0")]
-internal class Plugin : BaseUnityPlugin
+[HarmonyPatch, BepInPlugin("skellon.industry.foaa", "1OAA", "1.0")]
+public sealed class Plugin : BaseUnityPlugin
 {
     private Plugin() => Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly());
     [HarmonyPatch(typeof(GorillaServer), nameof(GorillaServer.UploadGorillanalytics)), HarmonyPrefix]
